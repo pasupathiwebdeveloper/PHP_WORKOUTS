@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>PHP JQUERY CRUD</h2>
+                </div>
+                <div class="col-md-4">
+                 <a href="#" class="btn btn-primary">Create</a>
+                </div>
+            </div>
+            <hr>
+            <div class="main"></div>
+        </div>
+    
+        <script>
+            $(document).ready(function() {
+             $.ajax({
+                 url:"PHP/retrieve.php",
+                 type:"GET",
+                 dataType:"json",
+                 success:function(response) {
+                     $.each(response,function(index,value) {
+                        $(".main").append("<div class='show_all'><div class='row'><div class='col-md-8'><p>"+response[index].id+"</p><p>"+response[index].name+"</p><p>"+response[index].fullname+"</p></div><div class='col-md-4'><p><a href='#' class='btn btn-primary view'>View</a></p><p><a href='#' class='btn btn-success edit'>Edit</a></p><p><a href='#' class='btn btn-danger delete'>Delete</a></p></div></div><hr /></div>");
+                     });
+        
+                    // console.log(response[0].id);
+                 }
+             });
+            });
+        </script>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
