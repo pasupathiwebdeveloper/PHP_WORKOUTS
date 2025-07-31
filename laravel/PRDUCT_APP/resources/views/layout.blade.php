@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <body class="container">
+        <div>
+     <h1>Product Lists</h1>
+       </div>
+       <hr>
+       <a href="{{ route('products.create') }}">Create</a>
+       @if(session('success'))
+   {{session('success')}}
+       @endif
+       <br>
+     @yield("content")
+        
+        <script src="" async defer></script>
+    </body>
+</html>
