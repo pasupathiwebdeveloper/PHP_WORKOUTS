@@ -1,0 +1,1 @@
+{{$employee->id}}<br> {{$employee->name}}<br> {{$employee->age}}

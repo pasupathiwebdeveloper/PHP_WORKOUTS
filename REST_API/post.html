@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- <form id="form">
+        <input type="text" name="name" id="name"/><br>
+        <input type="number" name="age" id="age"/><br>
+        <button id="post">POST</button>
+    </form> -->
+   <div class="get_users"></div>
+    <script>
+        $(document).ready(function() {
+         $.ajax({
+             url:"http://localhost/PHP/REST_API/users",
+             type: "GET",
+             dataType:"json",
+             success:function(response) {
+            console.log(response);
+            let html = "<ul>";
+            response.forEach(function(item) {
+                html += `<li>${item.name}</li>`;
+            })
+            html += "</ul>";
+            $(".get_users").html(html);
+             },
+             error: function(xhr, status, error) {
+      console.error("Error:", status, error);
+      console.log(xhr.response); // Inspect backend error
+    }
+         });
+        });
+    </script>
+
+ <div id="res"></div>
+   <script>
+    //    $(document).ready(function() {
+    
+    //        $("#form").on("submit",function(e) {
+    //            e.preventDefault();
+    
+    //        var jsonData = {name:$("#name").val(),age: $("#age").val()};
+    //         $.ajax({
+    //            url:"http://localhost/PHP/REST_API/users/5",
+    //            type:"PUT",
+    //            data: JSON.stringify(jsonData),
+    //         //    contentType:"application/json",
+    //         //    dataType:"json",
+    //            success:function(response) {
+    //            $("#res").html(response.message);
+    //            },
+    //            error:function() {
+    //             console.log("error");
+    //            }
+    //        });
+    //        })
+     
+    //    })
+   </script>
+</body>
+</html>
